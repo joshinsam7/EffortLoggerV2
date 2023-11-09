@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 //import java.sql.Connection;
 //import java.sql.DriverManager;
 //import java.sql.SQLException;
@@ -68,5 +71,46 @@ public class AdminDatabase {
 		
 		return false; 
 	}
+	
+	
+	public Boolean checkUserAuthentication(String userName, String password, File userD) {
+		
+		Scanner userReader;
+		try {
+			userReader = new Scanner (userD);
+			
+			while (userReader.hasNextLine()) {
+				String data = userReader.nextLine(); 
+				String[] infos  = data.split(":");
+				
+				String id = infos[0];
+				String pass = infos[1]; 
+				
+				if (id.equals(userName) || pass.equals(password)) {
+					return true; 
+				}
+			}
+			userReader.close(); 
+			
+		} catch (FileNotFoundException e) { 
+			e.printStackTrace();
+		}
+		return false;
+}
+	
+	private void showAlert(String message) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("");
+		alert.setContentText(message);
+	    alert.showAndWait();
+	}
+
+
+	public Boolean removeAccount(String username) {
+	//	Boolean check = 
+		
+		return false;
+	}
+
 	
 }
