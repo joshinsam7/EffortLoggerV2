@@ -118,58 +118,34 @@ public class Main extends Application {
             
             
             login.setOnAction(event -> {
-            
+                
             	//Perform authentication
             	String userName = usernameField.getText();
             	String password = passwordField.getText(); 
             	
-            	
+            	File adminD = new File("AdminDatabase.txt");
+            	File userD = new File("UserDatabase.txt");
             	
             	if (admin_cb.isSelected()) {
-            		File adminD = new File("AdminDatabase.txt");
-//	            		 if (adminD.createNewFile()) {
-//	                 		Boolean check = adminDatabase.checkAdminAuthentication(userName, password,adminD);
-//	                 		if (check) {            		
-//	                			openAdminWindow(); 
-//	                		}
-//	                		else {
-//	                			showAlert("The password or username you entered is incorrect");
-//	                		}
-//	            		 } 
-//	            		 if {
-						 Boolean check = adminDatabase.checkAdminAuthentication(userName, password,adminD);
-					 		if (check) {            		
-								openAdminWindow(); 
-							}
-							else {
-								showAlert("The password or username you entered is incorrect");
-							}
-//	            		 }
-            	}
-            	
-            	else {
             		
-            		try {
-            			
-            			File UserD = new File("UserDatabase.txt");
-	            		 if (UserD.createNewFile()) {
-	                 		Boolean check = userDatabase.checkUserAuthentication(userName, password, UserD);
-	                 		if (check) {            		
-	                 			openUserWindow(); 
-	                		}
-	                		else {
-	                			showAlert("The password or username you entered is incorrect");
-	                		}
-	            		 } 
-	            		 else {
-	            		        System.out.println("File already exists.");
-	            		 }
-            		 } catch (IOException e) {
-            		      System.out.println("An error occurred.");
-            		      e.printStackTrace();
-            		 }
+            		Boolean check = adminDatabase.checkAdminAuthentication(userName, password,adminD);
+				 		if (check) {            		
+				 				openAdminWindow(userD, adminD,adminDatabase); 
+						}
+						else {
+							showAlert("The password or username you entered is incorrect");
+						}
             	}
-            }); 
+            	else {
+					Boolean check = userDatabase.checkUserAuthentication(userName, password, userD);
+						if (check) {            		
+							openUserWindow(); 
+						}
+						else {
+							showAlert("The password or username you entered is incorrect");
+						}
+            	}
+            });
             
             Scene scene = new Scene(root, 400, 400);
             primaryStage.setScene(scene);
@@ -186,8 +162,8 @@ public class Main extends Application {
         alert.showAndWait();
     }
 
-	private void openAdminWindow() {
-    	AdminWindow adminWindow = new AdminWindow(); 
+	private void openAdminWindow(File userD, File adminD,AdminDatabase adminDatabase) {
+    	AdminWindow adminWindow = new AdminWindow(adminDatabase, userD, adminD); 
     	adminWindow.show() ;
     }
     
