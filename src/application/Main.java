@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +56,10 @@ public class Main extends Application {
 		// } catch(Exception e) {
 		// 	e.printStackTrace();
 		// }
+		
+		//Connect to the database
+		DBConnect();
+		
 		try {
             primaryStage.setTitle("Login");
 
@@ -190,9 +196,19 @@ public class Main extends Application {
     	userWindow.show(); 
     }
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		launch(args);
 	}
 
+	public void DBConnect() {
+		try {
+			String username = "root";
+			String password = "";
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/effortloggerdb",username,password);
+			System.out.print("Connected to the database!");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 	
 }
