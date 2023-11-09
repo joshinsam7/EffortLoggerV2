@@ -49,36 +49,36 @@
             </Tab>
           <Tab text="Definitions">
                <content>
-               	 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <content>
-      <AnchorPane prefHeight="397.0" prefWidth="599.0">
-         <children>
-            <TableView layoutX="14.0" layoutY="43.0" prefHeight="108.0" prefWidth="559.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="#" />
-                <TableColumn prefWidth="233.0" text="Project Names" />
-                  <TableColumn prefWidth="249.0" text="Life Cycle Steps" />
-              </columns>
-            </TableView>
-            <TableView layoutX="14.0" layoutY="156.0" prefHeight="108.0" prefWidth="559.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="#" />
-                <TableColumn prefWidth="193.0" text="Life Cycle Steps" />
-                  <TableColumn prefWidth="143.0" text="Effort Category" />
-                  <TableColumn prefWidth="147.0" text="Deliverable " />
-              </columns>
-            </TableView>
-            <Label layoutX="181.0" layoutY="7.0" prefHeight="35.0" prefWidth="242.0" text="EffortLogger Definitions ">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <Button layoutX="114.0" layoutY="278.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="358.0" text="More Definitions Table " />
-            
-         </children>
-      </AnchorPane>
-   </content>
-</ScrollPane>
+                  <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+                     <content>
+                        <AnchorPane prefHeight="397.0" prefWidth="599.0">
+                           <children>
+                              <TableView layoutX="14.0" layoutY="43.0" prefHeight="108.0" prefWidth="559.0">
+                              <columns>
+                                 <TableColumn prefWidth="75.0" text="#" />
+                                 <TableColumn prefWidth="233.0" text="Project Names" />
+                                    <TableColumn prefWidth="249.0" text="Life Cycle Steps" />
+                              </columns>
+                              </TableView>
+                              <TableView layoutX="14.0" layoutY="156.0" prefHeight="108.0" prefWidth="559.0">
+                              <columns>
+                                 <TableColumn prefWidth="75.0" text="#" />
+                                 <TableColumn prefWidth="193.0" text="Life Cycle Steps" />
+                                    <TableColumn prefWidth="143.0" text="Effort Category" />
+                                    <TableColumn prefWidth="147.0" text="Deliverable " />
+                              </columns>
+                              </TableView>
+                              <Label layoutX="181.0" layoutY="7.0" prefHeight="35.0" prefWidth="242.0" text="EffortLogger Definitions ">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="114.0" layoutY="278.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="358.0" text="More Definitions Table " />
+                              
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
                </content>
           </Tab>
           <Tab text="Logs" />
