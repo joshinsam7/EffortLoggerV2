@@ -1,33 +1,27 @@
 package application;
 
 import javafx.scene.Scene;
+import javafx.scene.Parent;
+import java.net.URL;
+import java.io.File;
 import javafx.stage.Stage;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-//import javafx.scene.control.ComboBox;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.fxml.FXMLLoader;
 
 
 public class UserWindow extends Stage {
 	public UserWindow(){
 		
-		VBox pros = new VBox(80); 
-		
-		HBox ss = new HBox(10);
-		
-		setTitle("Effort Logg Console"); 
-		
-		Button start = new Button();
-		start.setText("Start Activity");
-		
-		Button stop = new Button();
-		stop.setText("Stop Activity");
-		
-		ss.getChildren().addAll(start, stop); 
-		ss.setAlignment(Pos.BASELINE_CENTER);
-		
-		Scene userScene = new Scene(pros,600,400); 
-		setScene(userScene); 
+		 try {
+			setTitle("Effort Logger V2");
+		 	
+			URL url = new File("src/application/fxmlUI/MainConsole.fxml").toURI().toURL();
+		 	Parent root = FXMLLoader.load(url);
+			
+		 	Scene scene = new Scene(root,600,430);
+
+		 	setScene(scene);		 	
+		 } catch(Exception e) {
+		 	e.printStackTrace();
+		 } 
 	}
 }
