@@ -18,6 +18,13 @@ public class Project {
 		ID = iD;		
 		this.name = new SimpleStringProperty(name);
 	}
+	
+	public Project(int iD, String name, int lCS1) {
+		super();
+		ID = iD;		
+		this.name = new SimpleStringProperty(name);
+		this.LCS1 = new SimpleIntegerProperty(lCS1);
+	}
 
 	public Project(int iD, SimpleStringProperty name, SimpleIntegerProperty lCS1, SimpleIntegerProperty lCS2,
 			SimpleIntegerProperty lCS3, SimpleIntegerProperty lCS4, SimpleIntegerProperty lCS5,
@@ -74,8 +81,8 @@ public class Project {
 		this.name = name;
 	}
 
-	public SimpleIntegerProperty getLCS1() {
-		return LCS1;
+	public int getLCS1() {
+		return LCS1.get();
 	}
 
 	public void setLCS1(SimpleIntegerProperty lCS1) {

@@ -43,7 +43,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		
 		//Connect to the database
-		DBConnect();
+//		DBConnect();
 		
 		try {
             primaryStage.setTitle("Login");
@@ -161,15 +161,15 @@ public class Main extends Application {
 		launch(args);
 	}
 
-	public void DBConnect() {
-		try {
-			String username = "root";
-			String password = "";
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/effortloggerdb",username,password);
-			System.out.print("Connected to the database!");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
+//	public void DBConnect() {
+//		try {
+//			String username = "root";
+//			String password = "";
+//			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/effortloggerdb",username,password);
+//			System.out.print("Connected to the database!");
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//	}
 	
 }
