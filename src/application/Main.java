@@ -6,7 +6,9 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import application.Entity.Project;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -29,7 +32,11 @@ public class Main extends Application {
 
 	public Main() {
     	adminDatabase = new AdminDatabase();
-        userDatabase = new UserDatabase(); 
+        userDatabase = new UserDatabase();
+        
+//        for(int i = 1; i <= 25; i++) {
+//        	System.out.print("@FXML private TableColumn<Project, Integer> LCS"+ i +"Column;\n:");
+//        }
     }
 
 	@Override

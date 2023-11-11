@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
@@ -11,10 +13,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.DatePicker?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.ProjectController">
    <children>
       <TabPane prefHeight="430.0" prefWidth="600.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -107,11 +107,11 @@
                      <content>
                         <AnchorPane prefHeight="397.0" prefWidth="599.0">
                            <children>
-                              <TableView layoutX="14.0" layoutY="43.0" prefHeight="108.0" prefWidth="559.0">
+                              <TableView fx:id="projectTableView" layoutX="14.0" layoutY="43.0" prefHeight="108.0" prefWidth="559.0">
                               <columns>
-                                 <TableColumn prefWidth="75.0" text="#" />
-                                 <TableColumn prefWidth="233.0" text="Project Names" />
-                                    <TableColumn prefWidth="249.0" text="Life Cycle Steps" />
+                                 <TableColumn fx:id="IDColumn" prefWidth="75.0" text="#" />
+                                 <TableColumn fx:id="nameColumn" prefWidth="233.0" text="Project Names" />
+                                    <TableColumn fx:id="LCS1Column" prefWidth="249.0" text="Life Cycle Steps" />
                               </columns>
                               </TableView>
                               <TableView layoutX="14.0" layoutY="156.0" prefHeight="108.0" prefWidth="559.0">
