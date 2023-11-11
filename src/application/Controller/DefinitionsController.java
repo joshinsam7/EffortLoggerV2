@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class DefinitionsController implements Initializable{
 	@FXML private TableView<Project> projectTableView;
@@ -60,11 +61,13 @@ public class DefinitionsController implements Initializable{
 	
     ObservableList<Project> dataList;
 	
+    int index = -1;
+    
 	Connection conn =null;
     ResultSet rs = null;
     PreparedStatement pst = null;
     
-    public void UpdateTable(){        
+    public void updateProjectTable(){        
         
     	// Set up the columns in the table
      	IDColumn.setCellValueFactory(new PropertyValueFactory<Project, Integer>("ID"));
@@ -76,7 +79,73 @@ public class DefinitionsController implements Initializable{
         projectTableView.setItems(listM);
     }
     
-    public void UpdateLCSTable(){        
+    //Setup UI for this
+    public void addProject(){    
+        conn = mysqlconnect.ConnectDb();
+        String sql = "insert into project_table (ID,name,LCS1)values(?,?,?)";
+        try {
+            pst = conn.prepareStatement(sql);
+//            pst.setString(1, txt_username.getText());
+//            pst.setString(2, txt_password.getText());
+//            pst.setString(3, txt_email.getText());
+//            pst.setString(4, txt_type.getText());
+            pst.execute();
+                        
+            updateProjectTable();            
+        } catch (Exception e) {            
+        }
+    }
+    
+    //Setup UI for this
+    public void deleteProject(){
+        conn = mysqlconnect.ConnectDb();
+        String sql = "delete from project_table where user_id = ?";
+            try {
+                pst = conn.prepareStatement(sql);
+//                pst.setString(1, txt_id.getText());
+                pst.execute();                
+                updateProjectTable();                
+            } catch (Exception e) {            
+            }
+        
+    }
+    
+    //Setup UI for this
+    public void editProjectTable(){   
+        try {
+            conn = mysqlconnect.ConnectDb();
+//            String value1 = txt_id.getText();
+//            String value2 = txt_username.getText();
+//            String value3 = txt_password.getText();
+//            String value4 = txt_email.getText();            
+//            String sql = "update users set user_id= '"+value1+"',username= '"+value2+"',password= '"+
+//                    value3+"',email= '"+value4+"',type= '"+value5+"' where user_id='"+value1+"' ";
+//            pst= conn.prepareStatement(sql);
+            pst.execute();            
+            updateProjectTable();            
+        } catch (Exception e) {            
+        }        
+    }
+    
+    //Setup UI for this
+    //////// select project ///////
+    @FXML
+    void getSelected (MouseEvent event){
+    index = projectTableView.getSelectionModel().getSelectedIndex();
+    if (index <= -1){
+
+    return;
+    }
+//    txt_id.setText(col_id.getCellData(index).toString());
+//    txt_username.setText(col_username.getCellData(index).toString());
+//    txt_password.setText(col_password.getCellData(index).toString());
+//    txt_email.setText(col_email.getCellData(index).toString());
+//    txt_type.setText(col_type.getCellData(index).toString());
+
+    }
+    
+    
+    public void updateLCSTable(){        
         
     	// Set up the columns in the table
     	LCSIDColumn.setCellValueFactory(new PropertyValueFactory<LifeCycleStep, Integer>("ID"));
@@ -91,8 +160,8 @@ public class DefinitionsController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		UpdateTable();
-		UpdateLCSTable();
+		updateProjectTable();
+		updateLCSTable();
 	}
 	
 //	dummy list
