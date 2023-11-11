@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import application.Entity.Project;
+import application.Entity.EffortCategory;
 import application.Entity.LifeCycleStep;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,6 +58,23 @@ public class mysqlconnect {
         } catch (Exception e) {
         }
         return list;
-    }    
+    }
+
+	public static ObservableList<EffortCategory> getECs() {
+		Connection conn = ConnectDb();
+        ObservableList<EffortCategory> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from ec_table");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new EffortCategory(Integer.parseInt(rs.getString("ID")), 
+                		rs.getString("Name")
+                		));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+	}    
 }
 
