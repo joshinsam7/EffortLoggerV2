@@ -17,7 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class ProjectController implements Initializable{
+public class DefinitionsController implements Initializable{
 	@FXML private TableView<Project> projectTableView;
 	@FXML private TableColumn<Project, Integer> IDColumn;
 	@FXML private TableColumn<Project, String> nameColumn;
