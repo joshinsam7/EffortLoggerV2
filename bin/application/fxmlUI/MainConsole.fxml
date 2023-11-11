@@ -20,160 +20,37 @@
         <tabs>
             <Tab text="Effort Logger Console">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <ChoiceBox layoutX="93.0" layoutY="90.0" prefHeight="26.0" prefWidth="400.0" />
-                        <ChoiceBox layoutX="93.0" layoutY="160.0" prefWidth="400.0" />
-                        <ChoiceBox layoutX="93.0" layoutY="230.0" prefWidth="400.0" />
-                        <Button layoutX="160.0" layoutY="290.0" mnemonicParsing="false" text="Start Activity" />
-                        <Button layoutX="340.0" layoutY="290.0" mnemonicParsing="false" text="Stop Activity" />
-                        <Label layoutX="93.0" layoutY="60.0" text="Project:" />
-                        <Label layoutX="93.0" layoutY="130.0" text="Life Cycle Step:" />
-                        <Label layoutX="93.0" layoutY="200.0" text="Effort Category:" />
-                        <Label layoutX="223.0" layoutY="27.0" text="Effort Log Console">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                <fx:include source = "EffortLoggerConsole.fxml"/>
               </content>
             </Tab>
             <Tab text="Effort Log Editor">
               <content>
-               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-                  <children>
-                     <Label layoutX="213.0" layoutY="14.0" text="Effort Logger Editor">
-                        <font>
-                           <Font name="System Bold Italic" size="19.0" />
-                        </font>
-                     </Label>
-                     <Button layoutX="92.0" layoutY="329.0" mnemonicParsing="false" text="UPDATE" textFill="#5f9e42" />
-                     <Button layoutX="469.0" layoutY="329.0" mnemonicParsing="false" text="DELETE" textFill="#c92626" />
-                     <ChoiceBox layoutX="106.0" layoutY="68.0" prefHeight="26.0" prefWidth="290.0" />
-                     <Button layoutX="413.0" layoutY="68.0" mnemonicParsing="false" text="Clear" textFill="#cf1717">
-                        <cursor>
-                           <Cursor fx:constant="DEFAULT" />
-                        </cursor></Button>
-                     <ChoiceBox layoutX="106.0" layoutY="124.0" prefHeight="26.0" prefWidth="354.0" />
-                     <TextField layoutX="234.0" layoutY="180.0" prefHeight="26.0" prefWidth="66.0" />
-                     <TextField layoutX="321.0" layoutY="180.0" prefHeight="26.0" prefWidth="66.0" />
-                     <ChoiceBox layoutX="106.0" layoutY="229.0" prefWidth="150.0" />
-                     <ChoiceBox layoutX="106.0" layoutY="288.0" prefHeight="26.0" prefWidth="235.0" />
-                     <ChoiceBox layoutX="361.0" layoutY="288.0" prefWidth="150.0" />
-                     <Label layoutX="106.0" layoutY="51.0" text="Project" />
-                     <Label layoutX="106.0" layoutY="107.0" text="Select Effort Log Entry" />
-                     <Label layoutX="106.0" layoutY="163.0" text="Date" />
-                     <Label layoutX="236.0" layoutY="163.0" text="Start" />
-                     <Label layoutX="326.0" layoutY="163.0" text="Stop" />
-                     <Label layoutX="106.0" layoutY="212.0" text="Life Cycle Step" />
-                     <Label layoutX="106.0" layoutY="267.0" text="Effort Categoty" />
-                     <Label layoutX="361.0" layoutY="267.0" text="Plan" />
-                     <DatePicker layoutX="106.0" layoutY="180.0" prefHeight="26.0" prefWidth="112.0" />      
-                  </children>
-               </AnchorPane>
+               <fx:include source = "EffortLogEditor.fxml"/>
               </content>
             </Tab>
             <Tab text="Defect Log Console">
               <content>
-               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-                  <children>
-                     <ChoiceBox layoutX="83.0" layoutY="85.0" prefHeight="26.0" prefWidth="383.0" />
-                     <Label layoutX="86.0" layoutY="68.0" text="Project" />
-                     <ChoiceBox layoutX="83.0" layoutY="137.0" prefHeight="26.0" prefWidth="233.0" />
-                     <Button layoutX="381.0" layoutY="137.0" mnemonicParsing="false" text="Create New" />
-                     <Button layoutX="326.0" layoutY="192.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="Close " textFill="#a13d3d" />
-                     <Button layoutX="408.0" layoutY="192.0" mnemonicParsing="false" text="Reopen" textFill="#31a11d" />
-                     <Label layoutX="83.0" layoutY="123.0" text="Defect" />
-                     <TextField layoutX="83.0" layoutY="192.0" prefHeight="26.0" prefWidth="200.0" />
-                     <Label layoutX="83.0" layoutY="175.0" text="Defect Name " />
-                     <Label layoutX="326.0" layoutY="175.0" prefHeight="17.0" prefWidth="82.0" text="Status: Close " />
-                     <TextField layoutX="82.0" layoutY="249.0" prefHeight="59.0" prefWidth="393.0" />
-                     <Label layoutX="87.0" layoutY="232.0" text="Defect Symptoms OR Cause/Resolution" />
-                     <Label layoutX="205.0" layoutY="20.0" prefHeight="37.0" prefWidth="217.0" text="Defect Console">
-                        <font>
-                           <Font size="30.0" />
-                        </font>
-                     </Label>      
-                     <Button layoutX="168.0" layoutY="316.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Update" />
-                     <Button layoutX="292.0" layoutY="316.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="68.0" text="Delete" />
-                  </children>
-               </AnchorPane>                
+               <fx:include source = "DefectLogConsole.fxml"/>                
               </content>
             </Tab>
-          <Tab text="Definitions">
+            <Tab text="Definitions">
                <content>
                   <fx:include source = "Definitions.fxml"/>
                </content>
-          </Tab>
-          <Tab text="Logs">
+            </Tab>
+            <Tab text="Logs">
                <content>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="379.0" prefWidth="597.0">
-                           <children>
-                              <Label layoutX="255.0" layoutY="8.0" text="Effort Logs">
-                                 <font>
-                                    <Font size="19.0" />
-                                 </font>
-                              </Label>
-                              <TableView layoutX="2.0" layoutY="40.0" prefHeight="332.0" prefWidth="594.0">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="#" />
-                                  <TableColumn prefWidth="95.0" text="Date" />
-                                    <TableColumn prefWidth="121.0" text="Start" />
-                                    <TableColumn minWidth="0.0" prefWidth="108.0" text="Stop" />
-                                    <TableColumn minWidth="0.0" prefWidth="87.0" text="LC Steps" />
-                                    <TableColumn minWidth="0.0" prefWidth="107.0" text="Category" />
-                                </columns>
-                              </TableView>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
-               </content></Tab>
-            <Tab text="Planning Poker">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="229.0" layoutY="14.0" text="Planning Poker">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="262.0" layoutY="319.0" mnemonicParsing="false" text="Submit" />
-                        <ChoiceBox layoutX="118.0" layoutY="79.0" prefHeight="26.0" prefWidth="341.0" />
-                        <ChoiceBox layoutX="120.0" layoutY="145.0" prefHeight="26.0" prefWidth="341.0" />
-                        <ChoiceBox layoutX="119.0" layoutY="215.0" prefHeight="26.0" prefWidth="345.0" />
-                        <TextField layoutX="212.0" layoutY="271.0" />
-                        <Label layoutX="119.0" layoutY="55.0" text="Story" />
-                        <Label layoutX="118.0" layoutY="117.0" text="Life Cycle Step" />
-                        <Label layoutX="117.0" layoutY="191.0" text="Description" />
-                        <Label layoutX="76.0" layoutY="276.0" text="Your estimation point" />
-                     </children>
-                  </AnchorPane>
+                 <fx:include source = "Logs.fxml"/>  
                </content>
             </Tab>
             <Tab text="Planning Poker">
                <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="229.0" layoutY="14.0" text="Planning Poker">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="262.0" layoutY="319.0" mnemonicParsing="false" text="Done" />
-                        <ChoiceBox layoutX="118.0" layoutY="79.0" prefHeight="26.0" prefWidth="341.0" />
-                        <ChoiceBox layoutX="120.0" layoutY="145.0" prefHeight="26.0" prefWidth="341.0" />
-                        <ChoiceBox layoutX="119.0" layoutY="215.0" prefHeight="26.0" prefWidth="345.0" />
-                        <TextField layoutX="212.0" layoutY="271.0" />
-                        <Label layoutX="119.0" layoutY="55.0" text="Story" />
-                        <Label layoutX="118.0" layoutY="117.0" text="Life Cycle Step" />
-                        <Label layoutX="117.0" layoutY="191.0" text="Description" />
-                        <Label layoutX="121.0" layoutY="276.0" text="Average Point" />
-                     </children>
-                  </AnchorPane>
+                  <fx:include source = "PlanningPoker1.fxml"/>
+               </content>
+            </Tab>
+            <Tab text="Planning Poker">
+               <content>
+                  <fx:include source = "PlanningPoker2.fxml"/>
                </content>
             </Tab>
         </tabs>
