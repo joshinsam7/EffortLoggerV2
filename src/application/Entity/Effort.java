@@ -85,6 +85,11 @@ public class Effort {
 		this.time = time;
 	}
 	
+	@Override
+	public String toString() {
+		return "" + this.ID + " " + this.date + " (" + this.start + "-" + this.stop + ")";
+		
+	}
 	
 	
 }
