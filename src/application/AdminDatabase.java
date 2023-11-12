@@ -45,23 +45,55 @@ public class AdminDatabase {
 		return false;
 	}
 	
-	public Boolean addUserAccount(String userName, String password, File userD) {
+	@SuppressWarnings("resource")
+	public Boolean checkUsernameExist(String userName, File userD) {
 		
 		try {
-			FileOutputStream  outputStream = new FileOutputStream(userD, true); 
+			Scanner adminReader;
+			adminReader = new Scanner (userD);
 			
-			BufferedWriter adminWriter = new BufferedWriter(new OutputStreamWriter(outputStream)); 
+			while (adminReader.hasNextLine()) {
+				String data = adminReader.nextLine(); 
+				String[] infos  = data.split(":");
+				
+				String id = infos[0];
+				
+				if (id.equals(userName)) {
+					return true; 
+				}
+			}
 			
-			String text = userName + ":" + password + "\n";
+			adminReader.close();
 			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block	
+			e.printStackTrace();
+		}
+		
+		return false;  
+	}
+	
+	
+	public Boolean addUserAccount(String userName, String password, File userD) {
+		
+		Boolean check = checkUsernameExist(userName, userD); 
+		if (check == false) {
 			try {
-				adminWriter.write(text);
-				adminWriter.close();
-			} catch (IOException e) {
+				FileOutputStream  outputStream = new FileOutputStream(userD, true); 
+				
+				BufferedWriter adminWriter = new BufferedWriter(new OutputStreamWriter(outputStream)); 
+				
+				String text = userName + ":" + password + "\n";
+				
+				try {
+					adminWriter.write(text);
+					adminWriter.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		}
 		return false; 
 	}
@@ -91,48 +123,43 @@ public class AdminDatabase {
 		}
 		return false;
 }
-	
-	private void showAlert(String message) {
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("");
-		alert.setContentText(message);
-	    alert.showAndWait();
-	}
 
 
 	public Boolean removeAccount(String username, File userD) {
 	
-		try {
-            
-            BufferedReader fileReader = new BufferedReader(new FileReader(userD));
-            StringBuilder fileContent = new StringBuilder();
-            String line;
-
-            while ((line = fileReader.readLine()) != null) {
-                String[] infos = line.split(":");
-                String id = infos[0];
-
-                
-                if (!id.equals(username)) {
-                    fileContent.append(line).append("\n");
-                }
-            }
-
-            fileReader.close();
-
-            // Write the modified content back to the file
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(userD));
-            fileWriter.write(fileContent.toString());
-            fileWriter.close();
-
-            // Account removed successfully
-            return true;
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		Boolean check = checkUsernameExist(username, userD); 
+		if (check) {
+			try {
+	            BufferedReader fileReader = new BufferedReader(new FileReader(userD));
+	            StringBuilder fileContent = new StringBuilder();
+	            String line;
+	
+	            while ((line = fileReader.readLine()) != null) {
+	                String[] infos = line.split(":");
+	                String id = infos[0];
+	
+	                
+	                if (!id.equals(username)) {
+	                    fileContent.append(line).append("\n");
+	                }
+	            }
+	
+	            fileReader.close();
+	
+	            // Write the modified content back to the file
+	            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(userD));
+	            fileWriter.write(fileContent.toString());
+	            fileWriter.close();
+	
+	            // Account removed successfully
+	            return true;
+	
+	        } catch (FileNotFoundException e) {
+	            e.printStackTrace();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+		}
         // Account removal failed
         return false;
     }
