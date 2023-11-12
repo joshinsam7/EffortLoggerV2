@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.ELCController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="429.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.ELCController">
                      <children>
                         <ChoiceBox fx:id="projectChoiceBox" layoutX="93.0" layoutY="90.0" prefHeight="26.0" prefWidth="400.0" />
                         <ChoiceBox fx:id="LCSChoiceBox" layoutX="93.0" layoutY="160.0" prefWidth="400.0" />
                         <ChoiceBox fx:id="ECChoiceBox" layoutX="93.0" layoutY="230.0" prefWidth="400.0" />
-                        <Button fx:id="startBtn" layoutX="160.0" layoutY="327.0" mnemonicParsing="false" onAction="#startBtnClicked" text="Start Activity" />
-                        <Button fx:id="stopBtn" layoutX="340.0" layoutY="327.0" mnemonicParsing="false" onAction="#stopBtnClicked" text="Stop Activity" />
+                        <Button fx:id="startBtn" layoutX="114.0" layoutY="283.0" mnemonicParsing="false" onAction="#startBtnClicked" text="Start Activity" />
+                        <Button fx:id="stopBtn" layoutX="383.0" layoutY="283.0" mnemonicParsing="false" onAction="#stopBtnClicked" text="Stop Activity" />
                         <Label layoutX="93.0" layoutY="60.0" text="Project:" />
                         <Label layoutX="93.0" layoutY="130.0" text="Life Cycle Step:" />
                         <Label layoutX="93.0" layoutY="200.0" text="Effort Category:" />
@@ -21,6 +21,16 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-      <Label fx:id="timeLabel" layoutX="278.0" layoutY="290.0" text="Time:" />
+      <Label fx:id="timeLabel" layoutX="307.0" layoutY="286.0">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="timeLabel1" layoutX="241.0" layoutY="286.0" text="Duration:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="submitBtn" layoutX="266.0" layoutY="335.0" mnemonicParsing="false" onAction="#submitBtnClicked" text="Submit" />
+      <Label fx:id="infoLabel" layoutX="114.0" layoutY="387.0" text="Welcome to EffortLogger V2!" />
                      </children>
                   </AnchorPane>

@@ -20,6 +20,8 @@ public class mysqlconnect {
 	static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 	
+	public static ObservableList<Effort> listE = FXCollections.observableArrayList();
+	
 	Connection conn = null;
     public static Connection ConnectDb(){
         try {            
@@ -87,13 +89,14 @@ public class mysqlconnect {
 	
 	public static ObservableList<Effort> getEfforts() {
 		Connection conn = ConnectDb();
-        ObservableList<Effort> list = FXCollections.observableArrayList();
+        
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from effort_table");
+            listE.clear();
+        	PreparedStatement ps = conn.prepareStatement("select * from effort_table");
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){                
-                list.add(new Effort(
+                listE.add(new Effort(
                         Integer.parseInt(rs.getString("ID")),
                         new Date(dateFormat.parse(rs.getString("Date")).getTime()),
                         new Time(timeFormat.parse(rs.getString("Start")).getTime()),
@@ -106,7 +109,7 @@ public class mysqlconnect {
            }
         } catch (Exception e) {
         }
-        return list;
+        return listE;
 	}    
 	
 	public static ObservableList<Defect> getDefects() {
@@ -127,6 +130,7 @@ public class mysqlconnect {
         } catch (Exception e) {
         }
         return list;
-	}    
+	}	
+	
 }
 
