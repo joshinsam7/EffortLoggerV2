@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
-			prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.LogsController">
    <content>
                     
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="379.0" prefWidth="597.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="565.0" prefWidth="737.0">
                            <children>
-                              <Label layoutX="255.0" layoutY="8.0" text="Effort Logs">
+                              <Label layoutX="325.0" layoutY="14.0" text="Effort Logs">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
                               </Label>
-                              <TableView layoutX="2.0" layoutY="40.0" prefHeight="332.0" prefWidth="594.0">
+                              <TableView fx:id="logTableView" layoutY="49.0" prefHeight="532.0" prefWidth="737.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="#" />
-                                  <TableColumn prefWidth="95.0" text="Date" />
-                                    <TableColumn prefWidth="121.0" text="Start" />
-                                    <TableColumn minWidth="0.0" prefWidth="108.0" text="Stop" />
-                                    <TableColumn minWidth="0.0" prefWidth="87.0" text="LC Steps" />
-                                    <TableColumn minWidth="0.0" prefWidth="107.0" text="Category" />
+                                  	<TableColumn fx:id="IDColumn" prefWidth="35.0" text="#" />
+                                  	<TableColumn fx:id="DateColumn" prefWidth="80.0" text="Date" />
+                                    <TableColumn fx:id="StartColumn" prefWidth="80.0" text="Start" />
+                                    <TableColumn fx:id="StopColumn" prefWidth="80.0" text="Stop" />
+                  					<TableColumn fx:id="TimeColumn" prefWidth="80.0" text="Time" />
+                                    <TableColumn fx:id="LCSColumn" prefWidth="80.0" text="LC Steps" />
+                                    <TableColumn fx:id="ECColumn" prefWidth="150.0" text="Effort Category" />
+                  					<TableColumn fx:id="DIColumn" prefWidth="150.0" text="Deliverable/Interruption" />
                                 </columns>
                               </TableView>
                            </children>
