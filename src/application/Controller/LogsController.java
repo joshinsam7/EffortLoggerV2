@@ -17,6 +17,8 @@ import application.Entity.EffortCategory;
 import application.Entity.LifeCycleStep;
 import application.Entity.Project;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -46,7 +48,7 @@ public class LogsController implements Initializable{
 	@FXML private TableColumn<Defect, String> dDetailColumn;
 	@FXML private TableColumn<Defect, Boolean> dStatusColumn;
 			
-	ObservableList<Effort> listE;
+//	public static ObservableList<Effort> listE = FXCollections.observableArrayList();
 	
 	ObservableList<Defect> listD;
 	   
@@ -67,8 +69,8 @@ public class LogsController implements Initializable{
      	DIColumn.setCellValueFactory(new PropertyValueFactory<Effort, Integer>("DI"));
      		         
      	//load data from MySQL
-        listE = mysqlconnect.getEfforts();
-        logTableView.setItems(listE);
+        mysqlconnect.getEfforts();      
+        logTableView.setItems(mysqlconnect.listE);
     }
     
     public void updateDefectLogTable(){        
@@ -105,7 +107,10 @@ public class LogsController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		updateEffectLogTable();
 		updateDefectLogTable();
+		
+
 	}
+	
 	
 	
 }

@@ -5,9 +5,15 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
+import application.Controller.LogsController;
+import application.Entity.Effort;
 import application.Entity.Project;
 import javafx.application.Application;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -157,7 +163,7 @@ public class Main extends Application {
     	userWindow.show(); 
     }
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {           
 		launch(args);
 	}
 
