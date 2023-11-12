@@ -1,24 +1,21 @@
 package application;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
-//import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.SQLException;
 
 public class AdminDatabase {
 	
 	
-
 	public Boolean checkAdminAuthentication(String userName, String password, File adminD) {
 	    
 		try {
@@ -36,9 +33,12 @@ public class AdminDatabase {
 					return true; 
 				}
 			}
+			
 			adminReader.close();
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -52,23 +52,17 @@ public class AdminDatabase {
 			
 			BufferedWriter adminWriter = new BufferedWriter(new OutputStreamWriter(outputStream)); 
 			
-			String text = userName + " " + password + "\n";
+			String text = userName + ":" + password + "\n";
 			
 			try {
-				
 				adminWriter.write(text);
 				adminWriter.close();
-				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return false; 
 	}
 	
@@ -106,11 +100,40 @@ public class AdminDatabase {
 	}
 
 
-	public Boolean removeAccount(String username) {
-	//	Boolean check = 
-		
-		return false;
-	}
-
+	public Boolean removeAccount(String username, File userD) {
 	
+		try {
+            
+            BufferedReader fileReader = new BufferedReader(new FileReader(userD));
+            StringBuilder fileContent = new StringBuilder();
+            String line;
+
+            while ((line = fileReader.readLine()) != null) {
+                String[] infos = line.split(":");
+                String id = infos[0];
+
+                
+                if (!id.equals(username)) {
+                    fileContent.append(line).append("\n");
+                }
+            }
+
+            fileReader.close();
+
+            // Write the modified content back to the file
+            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(userD));
+            fileWriter.write(fileContent.toString());
+            fileWriter.close();
+
+            // Account removed successfully
+            return true;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // Account removal failed
+        return false;
+    }
 }
