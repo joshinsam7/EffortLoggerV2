@@ -12,17 +12,28 @@ import application.Database.mysqlconnect;
 import application.Entity.EffortCategory;
 import application.Entity.LifeCycleStep;
 import application.Entity.Project;
+import application.Util.EffortTimer;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 
 
 public class ELCController implements Initializable{
 	@FXML private ChoiceBox<String> projectChoiceBox;
 	@FXML private ChoiceBox<String> LCSChoiceBox;
 	@FXML private ChoiceBox<String> ECChoiceBox;
-			
+		
+	@FXML private Button startBtn;
+	@FXML private Button stopBtn;
+	@FXML private Label timeLabel;
+	EffortTimer timer;
+	
+	private boolean timerRunning = false;
+		
 	ObservableList<Project> listP;
 	
 	ObservableList<LifeCycleStep> listLCS;
@@ -32,6 +43,25 @@ public class ELCController implements Initializable{
 	Connection conn =null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    
+    @FXML
+    private void startBtnClicked(ActionEvent event) {
+        if (!timerRunning) {
+            timer.start();
+            timerRunning = true;
+            stopBtn.setDisable(false); // Enable the stop button
+            startBtn.setDisable(true); // Disable the start button
+        }
+    }
+	
+	@FXML
+    private void stopBtnClicked(ActionEvent event) {
+        timer.stop();
+        timer.pause();
+        timerRunning = false;
+        stopBtn.setDisable(true); // Disable the stop button
+        startBtn.setDisable(false); // Enable the start button
+    }
     
     public void updateProjectChoiceBox(){        
              		        
@@ -61,15 +91,14 @@ public class ELCController implements Initializable{
                 .map(EC -> EC.getName()) // get each project's name
                 .collect(Collectors.toList());
         ECChoiceBox.getItems().addAll(ECChoices);
-    }
-
-	
+    }  
+    
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		updateProjectChoiceBox();
 		updateLCSChoiceBox();
-		updateECChoiceBox();
+		updateECChoiceBox();	
+		timer = new EffortTimer(timeLabel);		
 	}
-	
-	
 }

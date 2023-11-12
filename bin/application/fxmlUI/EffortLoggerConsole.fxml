@@ -11,8 +11,8 @@
                         <ChoiceBox fx:id="projectChoiceBox" layoutX="93.0" layoutY="90.0" prefHeight="26.0" prefWidth="400.0" />
                         <ChoiceBox fx:id="LCSChoiceBox" layoutX="93.0" layoutY="160.0" prefWidth="400.0" />
                         <ChoiceBox fx:id="ECChoiceBox" layoutX="93.0" layoutY="230.0" prefWidth="400.0" />
-                        <Button layoutX="160.0" layoutY="290.0" mnemonicParsing="false" text="Start Activity" />
-                        <Button layoutX="340.0" layoutY="290.0" mnemonicParsing="false" text="Stop Activity" />
+                        <Button fx:id="startBtn" layoutX="160.0" layoutY="327.0" mnemonicParsing="false" onAction="#startBtnClicked" text="Start Activity" />
+                        <Button fx:id="stopBtn" layoutX="340.0" layoutY="327.0" mnemonicParsing="false" onAction="#stopBtnClicked" text="Stop Activity" />
                         <Label layoutX="93.0" layoutY="60.0" text="Project:" />
                         <Label layoutX="93.0" layoutY="130.0" text="Life Cycle Step:" />
                         <Label layoutX="93.0" layoutY="200.0" text="Effort Category:" />
@@ -21,5 +21,6 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
+      <Label fx:id="timeLabel" layoutX="278.0" layoutY="290.0" text="Time:" />
                      </children>
                   </AnchorPane>
