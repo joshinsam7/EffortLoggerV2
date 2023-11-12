@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 
@@ -22,7 +23,7 @@ public class AdminWindow extends Stage {
     	setTitle("Admin");
 
         HBox adminLayout = new HBox(50);
-
+        
         Label createLabel = new Label("Create :");
         createLabel.setAlignment(Pos.TOP_LEFT);
 
@@ -42,6 +43,13 @@ public class AdminWindow extends Stage {
         Button createButton = new Button("Submit");
         Button removeButton = new Button("Submit");
 
+        
+        Region spacingRegion1 = new Region();
+        Region spacingRegion2 = new Region();
+        
+        spacingRegion1.setMinHeight(10);
+        spacingRegion2.setMinHeight(10);
+        
         createButton.setOnAction(event -> {
             String newUsername = enterNewUsername.getText();
             String newPassword = enterNewPassword.getText();
@@ -52,14 +60,15 @@ public class AdminWindow extends Stage {
 
         removeButton.setOnAction(event -> {
             // Implement the code to remove a user account here
-        	String usernameTOremove = enterNewUsername.getText();
-        	dataDatabase.removeAccount(usernameTOremove); 
+        	String usernameTOremove = enterUsername.getText();
+        	dataDatabase = new AdminDatabase();
+        	dataDatabase.removeAccount(usernameTOremove, userD); 
         });
 
         adminLayout.setAlignment(Pos.TOP_LEFT);
 
-        createLayout.getChildren().addAll(newUsernameLabel, enterNewUsername, newPasswordLabel, enterNewPassword, createButton);
-        removeLayout.getChildren().addAll(usernameLabel, enterUsername, removeButton);
+        createLayout.getChildren().addAll(newUsernameLabel, enterNewUsername, newPasswordLabel, enterNewPassword,spacingRegion1, createButton);
+        removeLayout.getChildren().addAll(usernameLabel, enterUsername, spacingRegion2, removeButton);
 
         adminLayout.getChildren().addAll(createLabel, createLayout, removeLabel, removeLayout);
 
