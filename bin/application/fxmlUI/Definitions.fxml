@@ -41,7 +41,7 @@
                   <TableColumn fx:id="LCSDColumn1" prefWidth="147.0" text="Deliverable " />
                </columns>
             </TableView>
-            <TableView fx:id="LCSTableView2" layoutX="183.0" layoutY="412.0" prefHeight="108.0" prefWidth="560.0">
+            <TableView fx:id="LCSTableView2" layoutX="187.0" layoutY="408.0" prefHeight="108.0" prefWidth="560.0">
                <columns>
                   <TableColumn fx:id="LCSIDColumn2" prefWidth="75.0" text="#" />
                   <TableColumn fx:id="LCSNameColumn2" prefWidth="234.37107849121094" text="Life Cycle Steps" />
@@ -49,7 +49,7 @@
                   <TableColumn fx:id="LCSDColumn2" prefWidth="143.16217041015625" text="Deliverable " />
                </columns>
             </TableView>
-            <TableView fx:id="LCSTableView21" layoutX="183.0" layoutY="527.0" prefHeight="108.0" prefWidth="560.0">
+            <TableView fx:id="LCSTableView21" layoutX="187.0" layoutY="520.0" prefHeight="108.0" prefWidth="560.0">
                <columns>
                   <TableColumn fx:id="LCSIDColumn21" prefWidth="81.20103454589844" text="#" />
                   <TableColumn fx:id="LCSNameColumn21" prefWidth="228.29891967773438" text="Life Cycle Steps" />
@@ -57,14 +57,15 @@
                   <TableColumn fx:id="LCSDColumn21" prefWidth="137.10357666015625" text="Deliverable " />
                </columns>
             </TableView>
-            <AnchorPane layoutX="13.0" layoutY="37.0" prefHeight="537.0" prefWidth="165.0">
+            <AnchorPane layoutX="13.0" layoutY="42.0" prefHeight="537.0" prefWidth="165.0">
                <children>
-                  <Button layoutX="62.0" layoutY="292.0" mnemonicParsing="false" text="Add" />
-                  <Button layoutX="54.0" layoutY="387.0" mnemonicParsing="false" text="Update" />
-                  <Button layoutX="51.0" layoutY="340.0" mnemonicParsing="false" text="Remove" />
-                  <TextField layoutX="21.0" layoutY="108.0" prefHeight="26.0" prefWidth="128.0" />
-                  <TextField layoutX="22.0" layoutY="154.0" prefHeight="26.0" prefWidth="128.0" />
-                  <TextField layoutX="21.0" layoutY="196.0" prefHeight="26.0" prefWidth="129.0" />
+                  <Button layoutX="68.0" layoutY="292.0" mnemonicParsing="false" text="Add" />
+                  <Button layoutX="59.0" layoutY="387.0" mnemonicParsing="false" text="Update" />
+                  <Button layoutX="57.0" layoutY="340.0" mnemonicParsing="false" text="Remove" />
+                  <TextField layoutX="24.0" layoutY="85.0" prefHeight="26.0" prefWidth="128.0" />
+                  <TextField layoutX="23.0" layoutY="125.0" prefHeight="26.0" prefWidth="128.0" />
+                  <TextField layoutX="24.0" layoutY="174.0" prefHeight="26.0" prefWidth="129.0" />
+                  <TextField layoutX="27.0" layoutY="218.0" prefHeight="26.0" prefWidth="122.0" />
                </children>
             </AnchorPane>                              
          </children>

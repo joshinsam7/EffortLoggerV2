@@ -50,25 +50,41 @@ public class AdminWindow extends Stage {
         spacingRegion1.setMinHeight(10);
         spacingRegion2.setMinHeight(10);
         
+        Label statusLabelCreating = new Label();
+        Label statusLabelRemoving = new Label(); 
+        
         createButton.setOnAction(event -> {
             String newUsername = enterNewUsername.getText();
             String newPassword = enterNewPassword.getText();
             dataDatabase = new AdminDatabase();
-            dataDatabase.addUserAccount(newUsername, newPassword, userD); 
-            
+            Boolean checkForAdding = dataDatabase.addUserAccount(newUsername, newPassword, userD); 
+            if (checkForAdding == true) {
+            	statusLabelCreating.setText("Created Successfully!");
+            }
+            else {
+            	statusLabelCreating.setText("Username already exists");
+            }
         });
 
         removeButton.setOnAction(event -> {
             // Implement the code to remove a user account here
         	String usernameTOremove = enterUsername.getText();
         	dataDatabase = new AdminDatabase();
-        	dataDatabase.removeAccount(usernameTOremove, userD); 
+        	Boolean checkForremoving = dataDatabase.removeAccount(usernameTOremove, userD); 
+        	if (checkForremoving == false) {
+        		statusLabelRemoving.setText("Username does not exist!");
+        	}
+        	else {
+        		statusLabelRemoving.setText("Removed Successfully");
+        	}
+        
+        	
         });
 
         adminLayout.setAlignment(Pos.TOP_LEFT);
 
-        createLayout.getChildren().addAll(newUsernameLabel, enterNewUsername, newPasswordLabel, enterNewPassword,spacingRegion1, createButton);
-        removeLayout.getChildren().addAll(usernameLabel, enterUsername, spacingRegion2, removeButton);
+        createLayout.getChildren().addAll(newUsernameLabel, enterNewUsername, newPasswordLabel, enterNewPassword,spacingRegion1, createButton, statusLabelCreating);
+        removeLayout.getChildren().addAll(usernameLabel, enterUsername, spacingRegion2, removeButton, statusLabelRemoving);
 
         adminLayout.getChildren().addAll(createLabel, createLayout, removeLabel, removeLayout);
 
