@@ -5,34 +5,68 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.DefinitionsController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.DefinitionsController">
    <content>
-      <AnchorPane prefHeight="397.0" prefWidth="599.0">
+      <AnchorPane prefHeight="698.0" prefWidth="789.0">
          <children>
-            <TableView fx:id="projectTableView" layoutX="14.0" layoutY="43.0" prefHeight="108.0" prefWidth="560.0">
+            <TableView fx:id="projectTableView" layoutX="185.0" layoutY="59.0" prefHeight="108.0" prefWidth="560.0">
             <columns>
                <TableColumn fx:id="IDColumn" prefWidth="75.0" text="#" />
-               <TableColumn fx:id="nameColumn" prefWidth="233.0" text="Project Names" />
-                  <TableColumn fx:id="LCS1Column" prefWidth="249.0" text="Life Cycle Steps" />
+               <TableColumn fx:id="nameColumn" prefWidth="244.1618194580078" text="Project Names" />
+                  <TableColumn fx:id="LCS1Column" prefWidth="237.83819580078125" text="Life Cycle Steps" />
             </columns>
             </TableView>
-            <TableView fx:id="LCSTableView" layoutX="14.0" layoutY="156.0" prefHeight="108.0" prefWidth="560.0">
+            <TableView fx:id="LCSTableView" layoutX="185.0" layoutY="180.0" prefHeight="108.0" prefWidth="560.0">
             <columns>
                <TableColumn fx:id="LCSIDColumn" prefWidth="75.0" text="#" />
-               <TableColumn fx:id="LCSNameColumn" prefWidth="193.0" text="Life Cycle Steps" />
+               <TableColumn fx:id="LCSNameColumn" prefWidth="185.55873107910156" text="Life Cycle Steps" />
+                  <TableColumn fx:id="LCSDColumn" prefWidth="154.44125366210938" text="Deliverable " />
                   <TableColumn fx:id="LCSECColumn" prefWidth="143.0" text="Effort Category" />
-                  <TableColumn fx:id="LCSDColumn" prefWidth="147.0" text="Deliverable " />
             </columns>
             </TableView>
-            <Label layoutX="181.0" layoutY="7.0" prefHeight="35.0" prefWidth="242.0" text="EffortLogger Definitions ">
+            <Label layoutX="286.0" layoutY="18.0" prefHeight="35.0" prefWidth="242.0" text="EffortLogger Definitions ">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Button layoutX="114.0" layoutY="278.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="358.0" text="More Definitions Table " />                              
+            <TableView fx:id="LCSTableView1" layoutX="187.0" layoutY="294.0" prefHeight="108.0" prefWidth="560.0">
+               <columns>
+                  <TableColumn fx:id="LCSIDColumn1" prefWidth="75.0" text="#" />
+                  <TableColumn fx:id="LCSNameColumn1" prefWidth="193.0" text="Life Cycle Steps" />
+                  <TableColumn fx:id="LCSECColumn1" prefWidth="143.0" text="Effort Category" />
+                  <TableColumn fx:id="LCSDColumn1" prefWidth="147.0" text="Deliverable " />
+               </columns>
+            </TableView>
+            <TableView fx:id="LCSTableView2" layoutX="183.0" layoutY="412.0" prefHeight="108.0" prefWidth="560.0">
+               <columns>
+                  <TableColumn fx:id="LCSIDColumn2" prefWidth="75.0" text="#" />
+                  <TableColumn fx:id="LCSNameColumn2" prefWidth="234.37107849121094" text="Life Cycle Steps" />
+                  <TableColumn fx:id="LCSECColumn2" prefWidth="105.83779907226562" text="Effort Category" />
+                  <TableColumn fx:id="LCSDColumn2" prefWidth="143.16217041015625" text="Deliverable " />
+               </columns>
+            </TableView>
+            <TableView fx:id="LCSTableView21" layoutX="183.0" layoutY="527.0" prefHeight="108.0" prefWidth="560.0">
+               <columns>
+                  <TableColumn fx:id="LCSIDColumn21" prefWidth="81.20103454589844" text="#" />
+                  <TableColumn fx:id="LCSNameColumn21" prefWidth="228.29891967773438" text="Life Cycle Steps" />
+                  <TableColumn fx:id="LCSECColumn21" prefWidth="105.83779907226562" text="Effort Category" />
+                  <TableColumn fx:id="LCSDColumn21" prefWidth="137.10357666015625" text="Deliverable " />
+               </columns>
+            </TableView>
+            <AnchorPane layoutX="13.0" layoutY="37.0" prefHeight="537.0" prefWidth="165.0">
+               <children>
+                  <Button layoutX="62.0" layoutY="292.0" mnemonicParsing="false" text="Add" />
+                  <Button layoutX="54.0" layoutY="387.0" mnemonicParsing="false" text="Update" />
+                  <Button layoutX="51.0" layoutY="340.0" mnemonicParsing="false" text="Remove" />
+                  <TextField layoutX="21.0" layoutY="108.0" prefHeight="26.0" prefWidth="128.0" />
+                  <TextField layoutX="22.0" layoutY="154.0" prefHeight="26.0" prefWidth="128.0" />
+                  <TextField layoutX="21.0" layoutY="196.0" prefHeight="26.0" prefWidth="129.0" />
+               </children>
+            </AnchorPane>                              
          </children>
       </AnchorPane>
    </content>
