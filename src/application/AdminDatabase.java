@@ -10,7 +10,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
