@@ -21,7 +21,7 @@ public class UserWindow extends Stage {
 		 	
 			URL url = new File("src/application/fxmlUI/MainConsole.fxml").toURI().toURL();
 		 	Parent root = FXMLLoader.load(url);			
-		 	Scene scene = new Scene(root,740,430);
+		 	Scene scene = new Scene(root,740,560);
 		 	 	
 		 	setScene(scene);		 	
 		 } catch(Exception e) {

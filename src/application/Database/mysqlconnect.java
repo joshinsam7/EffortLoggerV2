@@ -8,6 +8,7 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 
 import application.Entity.Project;
+import application.Entity.Defect;
 import application.Entity.Effort;
 import application.Entity.EffortCategory;
 import application.Entity.LifeCycleStep;
@@ -101,18 +102,28 @@ public class mysqlconnect {
                         Integer.parseInt(rs.getString("LCS")),
                         Integer.parseInt(rs.getString("EC")),
                         Integer.parseInt(rs.getString("DI"))
-                ));
-
-//            	System.out.println(rs.toString());
-//            	System.out.println(rs.getString("ID"));
-//            	System.out.println(rs.getString("Date"));
-//            	System.out.println(rs.getString("Start"));
-//            	System.out.println(rs.getString("Stop"));
-//            	System.out.println(rs.getString("Time"));
-//            	System.out.println(rs.getString("LCS"));
-//            	System.out.println(rs.getString("EC"));
-//            	System.out.println(rs.getString("DI"));
+                ));                
+           }
+        } catch (Exception e) {
+        }
+        return list;
+	}    
+	
+	public static ObservableList<Defect> getDefects() {
+		Connection conn = ConnectDb();
+        ObservableList<Defect> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from defect_table");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new Defect(Integer.parseInt(rs.getString("ID")), 
+                		rs.getString("Name"),
+                		rs.getString("Detail"),
+                		rs.getBoolean("Status")
+                		));
             }
+            System.out.println(rs.getBoolean("Status"));
         } catch (Exception e) {
         }
         return list;

@@ -7,28 +7,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.LogsController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.LogsController">
    <content>
                     
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="565.0" prefWidth="737.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="554.0" prefWidth="737.0">
                            <children>
                               <Label layoutX="325.0" layoutY="14.0" text="Effort Logs">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="logTableView" layoutY="49.0" prefHeight="532.0" prefWidth="737.0">
+                              <TableView fx:id="logTableView" layoutY="49.0" prefHeight="222.0" prefWidth="737.0">
                                 <columns>
-                                  	<TableColumn fx:id="IDColumn" prefWidth="35.0" text="#" />
-                                  	<TableColumn fx:id="DateColumn" prefWidth="80.0" text="Date" />
-                                    <TableColumn fx:id="StartColumn" prefWidth="80.0" text="Start" />
-                                    <TableColumn fx:id="StopColumn" prefWidth="80.0" text="Stop" />
-                  					<TableColumn fx:id="TimeColumn" prefWidth="80.0" text="Time" />
-                                    <TableColumn fx:id="LCSColumn" prefWidth="80.0" text="LC Steps" />
-                                    <TableColumn fx:id="ECColumn" prefWidth="150.0" text="Effort Category" />
-                  					<TableColumn fx:id="DIColumn" prefWidth="150.0" text="Deliverable/Interruption" />
+                                  	<TableColumn fx:id="IDColumn" prefWidth="35.0" resizable="false" text="#" />
+                                  	<TableColumn fx:id="DateColumn" prefWidth="80.0" resizable="false" text="Date" />
+                                    <TableColumn fx:id="StartColumn" prefWidth="80.0" resizable="false" text="Start" />
+                                    <TableColumn fx:id="StopColumn" prefWidth="80.0" resizable="false" text="Stop" />
+                  					<TableColumn fx:id="TimeColumn" prefWidth="80.0" resizable="false" text="Time" />
+                                    <TableColumn fx:id="LCSColumn" prefWidth="80.0" resizable="false" text="LC Steps" />
+                                    <TableColumn fx:id="ECColumn" prefWidth="150.0" resizable="false" text="Effort Category" />
+                  					<TableColumn fx:id="DIColumn" prefWidth="150.0" resizable="false" text="Deliverable/Interruption" />
                                 </columns>
                               </TableView>
+            <TableView fx:id="defectLogTableView" layoutY="330.0" prefHeight="222.0" prefWidth="737.0">
+               <columns>
+                  <TableColumn fx:id="dIDColumn" prefWidth="35.0" resizable="false" text="#" />
+                  <TableColumn fx:id="dNameColumn" prefWidth="200.0" resizable="false" text="Name" />
+                  <TableColumn fx:id="dDetailColumn" prefWidth="375.0" resizable="false" text="Detail" />
+                  <TableColumn fx:id="dStatusColumn" prefWidth="125.0" resizable="false" text="Status" />
+               </columns>
+            </TableView>
+            <Label layoutX="325.0" layoutY="286.0" text="Defect Logs">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
                            </children>
                         </AnchorPane>
                     </content>
