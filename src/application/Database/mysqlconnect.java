@@ -6,12 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.util.stream.Collectors;
 
 import application.Entity.Project;
 import application.Entity.Defect;
 import application.Entity.Effort;
 import application.Entity.EffortCategory;
 import application.Entity.LifeCycleStep;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -21,6 +24,7 @@ public class mysqlconnect {
 	static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 	
 	public static ObservableList<Effort> listE = FXCollections.observableArrayList();
+	public static ObservableList<String> effortChoices = FXCollections.observableArrayList();
 	
 	Connection conn = null;
     public static Connection ConnectDb(){
@@ -112,6 +116,34 @@ public class mysqlconnect {
         return listE;
 	}    
 	
+	public static Effort getOneEffort(String ID) {
+		Connection conn = ConnectDb();
+        
+        try {
+            
+        	PreparedStatement ps = conn.prepareStatement("select * from effort_table where id = ?");
+        	ps.setString(1, ID);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+            Effort res = new Effort(
+                        Integer.parseInt(rs.getString("ID")),
+                        new Date(dateFormat.parse(rs.getString("Date")).getTime()),
+                        new Time(timeFormat.parse(rs.getString("Start")).getTime()),
+                        new Time(timeFormat.parse(rs.getString("Stop")).getTime()),
+                        Double.parseDouble(rs.getString("Time")),
+                        Integer.parseInt(rs.getString("LCS")),
+                        Integer.parseInt(rs.getString("EC")),
+                        Integer.parseInt(rs.getString("DI"))
+           );                
+            return res;
+           }
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+        return null;
+	} 
+	
 	public static ObservableList<Defect> getDefects() {
 		Connection conn = ConnectDb();
         ObservableList<Defect> list = FXCollections.observableArrayList();
@@ -132,5 +164,20 @@ public class mysqlconnect {
         return list;
 	}	
 	
+	public static ObservableList<String> getEffortChoices() {                
+		try {
+			getEfforts();			
+			effortChoices.clear();
+			//Convert list of Effort to list of String
+			for(Effort e : listE) {
+	    		effortChoices.add(e.toString());
+	    	}			
+			return effortChoices;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}                                 
+        return effortChoices;
+	}
 }
 

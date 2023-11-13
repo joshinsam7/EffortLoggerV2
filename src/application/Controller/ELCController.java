@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 import application.Database.mysqlconnect;
+import application.Controller.ELEController;
 import application.Entity.Effort;
 import application.Entity.EffortCategory;
 import application.Entity.LifeCycleStep;
@@ -79,8 +80,9 @@ public class ELCController implements Initializable{
             timer.reset();
             timeLabel.setText("");
         	infoLabel.setText("Submitted!");
-            infoLabel.setTextFill(Color.GREEN);
+            infoLabel.setTextFill(Color.GREEN);      
             mysqlconnect.getEfforts();
+            mysqlconnect.getEffortChoices();
         } catch (Exception e) {            
         }    	    	    	
     }

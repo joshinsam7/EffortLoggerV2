@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="200.0" prefWidth="200.0">
+<AnchorPane prefHeight="560.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.PPController">
                      <children>
                         <Label layoutX="229.0" layoutY="14.0" text="Planning Poker">
                            <font>
@@ -22,9 +15,9 @@
                            </font>
                         </Label>
                         <Button layoutX="262.0" layoutY="319.0" mnemonicParsing="false" text="Submit" />
-                        <ChoiceBox layoutX="118.0" layoutY="79.0" prefHeight="26.0" prefWidth="341.0" />
-                        <ChoiceBox layoutX="120.0" layoutY="145.0" prefHeight="26.0" prefWidth="341.0" />
-                        <ChoiceBox layoutX="119.0" layoutY="215.0" prefHeight="26.0" prefWidth="345.0" />
+                        <ChoiceBox fx:id="storyChoiceBox" layoutX="118.0" layoutY="79.0" prefHeight="26.0" prefWidth="341.0" />
+                        <ChoiceBox fx:id="LCSChoiceBox" layoutX="120.0" layoutY="145.0" prefHeight="26.0" prefWidth="341.0" />
+                        <ChoiceBox fx:id="descriptionChoiceBox" layoutX="119.0" layoutY="215.0" prefHeight="26.0" prefWidth="345.0" />
                         <TextField layoutX="212.0" layoutY="271.0" />
                         <Label layoutX="119.0" layoutY="55.0" text="Story" />
                         <Label layoutX="118.0" layoutY="117.0" text="Life Cycle Step" />
