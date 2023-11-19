@@ -4,6 +4,7 @@ module EffortLoggerV2 {
 	requires java.sql;
 	requires javafx.graphics;
 	requires javafx.base;
+	requires org.junit.jupiter.api;
 	
 	exports application.Controller;
 	opens application.Controller to javafx.fxml;
