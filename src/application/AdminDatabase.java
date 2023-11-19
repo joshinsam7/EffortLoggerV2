@@ -66,7 +66,6 @@ public class AdminDatabase {
 			adminReader.close();
 			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block	
 			e.printStackTrace();
 		}
 		
@@ -88,6 +87,9 @@ public class AdminDatabase {
 				try {
 					adminWriter.write(text);
 					adminWriter.close();
+					
+					return true; 
+					
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -160,7 +162,6 @@ public class AdminDatabase {
 	            e.printStackTrace();
 	        }
 		}
-        // Account removal failed
         return false;
     }
 }

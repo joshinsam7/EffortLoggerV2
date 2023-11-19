@@ -30,11 +30,12 @@ public class mysqlconnect {
     public static Connection ConnectDb(){
         try {            
             String username = "root";
-			String password = "";
+			String password = "Min32566hsgdbsd23939";
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/effortloggerdb",username,password);			
             return conn;
         } catch (Exception e) {            
-            return null;
+        	System.out.print(e.toString());
+        	return null;
         }
     }
     
@@ -51,6 +52,7 @@ public class mysqlconnect {
                 		Integer.parseInt(rs.getString("LCS1"))));
             }
         } catch (Exception e) {
+        	System.out.print(e.toString());
         }
         return list;
     }    
