@@ -147,7 +147,30 @@ public class mysqlconnect {
         	e.printStackTrace();
         }
         return null;
-	} 
+	}
+	
+	public static Defect getOneDefect(String name) {
+		Connection conn = ConnectDb();
+        
+        try {
+            
+        	PreparedStatement ps = conn.prepareStatement("select * from defect_table where Name = ?");
+        	ps.setString(1, name);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+            Defect res = new Defect(
+            		Integer.parseInt(rs.getString("ID")), 
+            		rs.getString("Name"),
+            		rs.getString("Detail"),
+            		rs.getBoolean("Status"));               
+            return res;
+           }
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+        return null;
+	}
 	
 	public static ObservableList<Defect> getDefects() {
 		Connection conn = ConnectDb();

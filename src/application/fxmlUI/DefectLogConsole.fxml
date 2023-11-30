@@ -18,7 +18,7 @@
                      <Label layoutX="83.0" layoutY="123.0" text="Defect" />
                      <TextField fx:id="defectNameTextField" layoutX="83.0" layoutY="192.0" prefHeight="26.0" prefWidth="200.0" />
                      <Label layoutX="83.0" layoutY="175.0" text="Defect Name " />
-                     <Label layoutX="326.0" layoutY="175.0" prefHeight="17.0" prefWidth="82.0" text="Status: Close " />
+                     <Label fx:id="statusLabel" layoutX="326.0" layoutY="175.0" prefHeight="17.0" prefWidth="82.0" text="Status: Close " />
                      <TextField fx:id="defectSCTextField" layoutX="82.0" layoutY="249.0" prefHeight="59.0" prefWidth="393.0" />
                      <Label layoutX="87.0" layoutY="232.0" text="Defect Symptoms OR Cause/Resolution" />
                      <Label layoutX="205.0" layoutY="20.0" prefHeight="37.0" prefWidth="217.0" text="Defect Console">

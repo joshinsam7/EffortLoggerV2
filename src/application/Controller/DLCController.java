@@ -35,6 +35,7 @@ public class DLCController implements Initializable{
 	@FXML private ChoiceBox<String> projectChoiceBox;
 	@FXML private ChoiceBox<String> defectChoiceBox;
 	@FXML private ChoiceBox<String> ECChoiceBox;
+	@FXML private Label statusLabel;
 		
 	@FXML private Button createBtn;
 	@FXML private TextField defectNameTextField;
@@ -58,12 +59,12 @@ public class DLCController implements Initializable{
             pst.setString(2, defectSCTextField.getText().toString());
             pst.setInt(3, 1);           
             pst.execute();
+            updateDefectChoiceBox();
 //            timer.reset();
 //            timeLabel.setText("");
 //        	infoLabel.setText("Submitted!");
 //            infoLabel.setTextFill(Color.GREEN);      
-            mysqlconnect.getDefects();
-//            mysqlconnect.getEffortChoices();
+
         } catch (Exception e) {       
         	System.out.print(e.getMessage());
         }    	    	    	
@@ -84,7 +85,7 @@ public class DLCController implements Initializable{
     	//load data from MySQL
     	listD = mysqlconnect.getDefects();
     	List<String> defectChoices = listD.stream()
-                .map(LCS -> LCS.getName()) // get each defect's name
+                .map(defect -> defect.getName()) // get each defect's name
                 .collect(Collectors.toList());
         defectChoiceBox.getItems().addAll(defectChoices);
     }
@@ -98,10 +99,10 @@ public class DLCController implements Initializable{
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {                
             	if(newValue != null) {
-//            		Effort e = mysqlconnect.getOneEffort(newValue.substring(0,newValue.indexOf(' ')));
-//                	datePicker.setValue(LocalDate.parse(newValue.substring(newValue.indexOf(' ') + 1,newValue.indexOf(' ') + 11), formatter));                	
-//                	startTextField.setText(String.valueOf(e.getStart()));
-//                	stopTextField.setText(String.valueOf(e.getStop()));
+            		Defect d = mysqlconnect.getOneDefect(newValue);
+            		defectNameTextField.setText(d.getName());                	
+                	defectSCTextField.setText(d.getDetail());
+                	statusLabel.setText(d.isStatus()?"Status: Open":"Status: Closed");
             	}            	            	                
             }
         });

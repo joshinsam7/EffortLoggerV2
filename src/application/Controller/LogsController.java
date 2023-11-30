@@ -107,8 +107,5 @@ public class LogsController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		updateEffectLogTable();
 		updateDefectLogTable();
-	}
-	
-	
-	
+	}			
 }
