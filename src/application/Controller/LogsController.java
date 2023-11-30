@@ -84,8 +84,8 @@ public class LogsController implements Initializable{
         dStatusColumn.setCellFactory(column -> getBooleanCell());
      		         
      	//load data from MySQL
-        listD = mysqlconnect.getDefects();
-        defectLogTableView.setItems(listD);
+        mysqlconnect.getDefects();
+        defectLogTableView.setItems(mysqlconnect.listD);
     }
     
     private TableCell<Defect, Boolean> getBooleanCell() {

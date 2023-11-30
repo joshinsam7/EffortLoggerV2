@@ -24,6 +24,9 @@ public class mysqlconnect {
 	static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 	
 	public static ObservableList<Effort> listE = FXCollections.observableArrayList();
+	public static ObservableList<Defect> listD = FXCollections.observableArrayList();
+	
+	//Effort Choices are String version of listE
 	public static ObservableList<String> effortChoices = FXCollections.observableArrayList();
 	
 	Connection conn = null;
@@ -148,13 +151,14 @@ public class mysqlconnect {
 	
 	public static ObservableList<Defect> getDefects() {
 		Connection conn = ConnectDb();
-        ObservableList<Defect> list = FXCollections.observableArrayList();
+        
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from defect_table");
+        	listD.clear();
+        	PreparedStatement ps = conn.prepareStatement("select * from defect_table");
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
-                list.add(new Defect(Integer.parseInt(rs.getString("ID")), 
+                listD.add(new Defect(Integer.parseInt(rs.getString("ID")), 
                 		rs.getString("Name"),
                 		rs.getString("Detail"),
                 		rs.getBoolean("Status")
@@ -163,7 +167,7 @@ public class mysqlconnect {
             System.out.println(rs.getBoolean("Status"));
         } catch (Exception e) {
         }
-        return list;
+        return listD;
 	}	
 	
 	public static ObservableList<String> getEffortChoices() {                
@@ -182,4 +186,3 @@ public class mysqlconnect {
         return effortChoices;
 	}
 }
-
