@@ -30,7 +30,7 @@ public class mysqlconnect {
     public static Connection ConnectDb(){
         try {            
             String username = "root";
-			String password = "Min32566hsgdbsd23939";
+			String password = "";
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/effortloggerdb",username,password);			
             return conn;
         } catch (Exception e) {            
